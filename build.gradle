@@ -76,7 +76,7 @@ dependencies {
 // experimental/incubating warnings.
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-    options.compilerArgs += ['-Xlint:none', '-nowarn']
+    options.compilerArgs += ['-Xlint:none', '-Xlint:-deprecation', '-Xlint:-removal', '-nowarn']
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
