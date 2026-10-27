@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.rhaaaaaast1.akubejsplugin.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "RecipeManagerIndexMixin",
+    "ShapedRecipeOutputMixin",
+    "ShapelessRecipeOutputMixin",
+    "AbstractCookingRecipeOutputMixin",
+    "SingleItemRecipeOutputMixin",
+    "SmithingTransformRecipeOutputMixin",
+    "SmithingTrimRecipeOutputMixin",
+    "BlockEntitySetChangedMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.rhaaaaaast1.akubejsplugin.mixin.tconstruct",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "dev.rhaaaaaast1.akubejsplugin.mixin.AKubejsPluginMixinPlugin",
+  "mixins": [
+    "MantleBlockEntitySetChangedFastMixin",
+    "MaterialCastingOutputMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
