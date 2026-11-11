@@ -11,7 +11,8 @@
     "SingleItemRecipeOutputMixin",
     "SmithingTransformRecipeOutputMixin",
     "SmithingTrimRecipeOutputMixin",
-    "BlockEntitySetChangedMixin"
+    "BlockEntitySetChangedMixin",
+    "ComposterBlockMixin"
   ],
   "client": [],
   "injectors": {

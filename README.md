@@ -13,6 +13,17 @@ Construct or Create; those are optional integrations.
 - `BlockEvents.blockEntitySlotChanged` — observe container slot changes.
 - `BlockEntityAPI` — wrap `Container`, `WorldlyContainer`, or `IItemHandler`.
 - `PlayerEvents.rightClickBlockPre` — cancellable right-click interception.
+- `StartupEvents.composterOutput` — replace the item produced by a full composter.
+
+```js
+// kubejs/startup_scripts/composter_output.js
+StartupEvents.composterOutput(event => {
+  event.setOutput('minecraft:composter')
+})
+```
+
+The composter keeps its normal fill behavior; only the extracted output item is
+replaced. Omitting the event or passing an invalid item keeps bone meal.
 
 ### Optional Tinkers' Construct integration
 
@@ -42,9 +53,9 @@ The Gradle wrapper uses the Tencent mirror:
 https://mirrors.cloud.tencent.com/gradle/gradle-8.8-bin.zip
 ```
 
-```powershell
-$env:JAVA_HOME='E:\JDK\jdk21'
-.\gradlew.bat build
+```bash
+export JAVA_HOME=/e/JDK/jdk21
+./gradlew build
 ```
 
 `libs/` must contain `Mantle-1.21.1-1.13.1.jar` and

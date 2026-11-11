@@ -4,10 +4,14 @@ import dev.latvian.mods.kubejs.event.EventGroupRegistry;
 import dev.latvian.mods.kubejs.plugin.ClassFilter;
 import dev.latvian.mods.kubejs.plugin.KubeJSPlugin;
 import dev.latvian.mods.kubejs.script.BindingRegistry;
+import dev.latvian.mods.kubejs.script.ScriptManager;
+import dev.latvian.mods.kubejs.script.ScriptType;
 import dev.rhaaaaaast1.akubejsplugin.api.BlockEntityAPI;
 import dev.rhaaaaaast1.akubejsplugin.api.BlockEntitySlots;
 import dev.rhaaaaaast1.akubejsplugin.api.ItemStackAPI;
 import dev.rhaaaaaast1.akubejsplugin.block.BlockEntitySlotTracker;
+import dev.rhaaaaaast1.akubejsplugin.composter.ComposterOutput;
+import dev.rhaaaaaast1.akubejsplugin.event.ComposterOutputKubeEvent;
 import dev.rhaaaaaast1.akubejsplugin.event.RightClickBlockHandler;
 import dev.rhaaaaaast1.akubejsplugin.recipe.RecipeIndex;
 import net.neoforged.neoforge.common.NeoForge;
@@ -24,6 +28,14 @@ public final class AKubejsPluginKJSPlugin implements KubeJSPlugin {
         if (!rightClickRegistered) {
             rightClickRegistered = true;
             NeoForge.EVENT_BUS.addListener(RightClickBlockHandler::onRightClickBlock);
+        }
+    }
+
+    @Override
+    public void afterScriptsLoaded(ScriptManager manager) {
+        if (manager.scriptType.isStartup() && AKubejsPluginEvents.COMPOSTER_OUTPUT != null) {
+            ComposterOutput.reset();
+            AKubejsPluginEvents.COMPOSTER_OUTPUT.post(ScriptType.STARTUP, new ComposterOutputKubeEvent());
         }
     }
 

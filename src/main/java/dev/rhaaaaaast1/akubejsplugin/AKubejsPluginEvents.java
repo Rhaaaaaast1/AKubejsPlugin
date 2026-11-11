@@ -4,7 +4,9 @@ import dev.latvian.mods.kubejs.event.EventHandler;
 import dev.latvian.mods.kubejs.plugin.builtin.event.BlockEvents;
 import dev.latvian.mods.kubejs.plugin.builtin.event.PlayerEvents;
 import dev.latvian.mods.kubejs.plugin.builtin.event.ServerEvents;
+import dev.latvian.mods.kubejs.plugin.builtin.event.StartupEvents;
 import dev.rhaaaaaast1.akubejsplugin.event.BlockEntitySlotChangedKubeEvent;
+import dev.rhaaaaaast1.akubejsplugin.event.ComposterOutputKubeEvent;
 import dev.rhaaaaaast1.akubejsplugin.event.RecipeOutputKubeEvent;
 import dev.rhaaaaaast1.akubejsplugin.event.RightClickBlockPreKubeEvent;
 
@@ -17,6 +19,7 @@ public final class AKubejsPluginEvents {
     public static EventHandler RECIPE_OUTPUT;
     public static EventHandler BLOCK_ENTITY_SLOT_CHANGED;
     public static EventHandler RIGHT_CLICK_BLOCK_PRE;
+    public static EventHandler COMPOSTER_OUTPUT;
 
     private AKubejsPluginEvents() {
     }
@@ -29,6 +32,7 @@ public final class AKubejsPluginEvents {
         RECIPE_OUTPUT = ServerEvents.GROUP.server("recipeOutput", () -> RecipeOutputKubeEvent.class);
         BLOCK_ENTITY_SLOT_CHANGED = BlockEvents.GROUP.server("blockEntitySlotChanged", () -> BlockEntitySlotChangedKubeEvent.class);
         RIGHT_CLICK_BLOCK_PRE = PlayerEvents.GROUP.server("rightClickBlockPre", () -> RightClickBlockPreKubeEvent.class);
+        COMPOSTER_OUTPUT = StartupEvents.GROUP.startup("composterOutput", () -> ComposterOutputKubeEvent.class);
     }
 
     public static boolean hasRecipeListeners() {
